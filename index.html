@@ -1,0 +1,932 @@
+
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#103b2d">
+<title>Мадина & Азамат | Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --green: #103b2d;
+  --dark: #08291f;
+  --gold: #b69a62;
+  --cream: #f8f4e9;
+  --white: #fffdf7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--green);
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+section {
+  width: 100%;
+  padding: 85px 22px;
+  text-align: center;
+}
+
+.serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 5px;
+  margin-bottom: 22px;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 10vw, 62px);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.line {
+  width: 75px;
+  height: 1px;
+  background: var(--gold);
+  margin: 25px auto;
+}
+
+/* ENVELOPE */
+
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background:
+    linear-gradient(rgba(5,35,25,.7),rgba(5,35,25,.9)),
+    url('images/photo2.jpg') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1.2s, visibility 1.2s;
+}
+
+#intro.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.envelope-wrap {
+  width: 88%;
+  max-width: 390px;
+  text-align: center;
+}
+
+.envelope {
+  position: relative;
+  height: 245px;
+  background: #f4ead5;
+  box-shadow: 0 20px 60px #0005;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #e9ddc5;
+}
+
+.envelope-letter {
+  position: absolute;
+  z-index: 2;
+  width: 88%;
+  height: 90%;
+  left: 6%;
+  top: 5%;
+  background: #fffaf0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1s;
+}
+
+.envelope-letter h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 37px;
+  color: var(--green);
+}
+
+.envelope-letter p {
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  margin-top: 12px;
+}
+
+.envelope-flap {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  background: #e9ddc5;
+  clip-path: polygon(0 0,100% 0,50% 58%);
+  transform-origin: top;
+  transition: transform 1s;
+}
+
+.envelope-front {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  background: linear-gradient(135deg,#fff8e8,#e8dcc4);
+  clip-path: polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);
+}
+
+.seal {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 58%;
+  transform: translate(-50%,-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #e7d5a5;
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: opacity .4s;
+}
+
+.envelope.open .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .envelope-letter {
+  transform: translateY(-115px);
+}
+
+.envelope.open .seal {
+  opacity: 0;
+}
+
+.open-label {
+  color: white;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-top: 38px;
+  line-height: 2;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100svh;
+  background:
+    linear-gradient(rgba(5,35,25,.45),rgba(5,35,25,.75)),
+    url('images/photo2.jpg') center/cover no-repeat;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: clamp(65px,15vw,100px);
+  line-height: .9;
+  font-weight: 500;
+}
+
+.hero .amp {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 65px;
+  color: var(--gold);
+  margin: 10px 0;
+}
+
+.hero .eyebrow {
+  color: #e8d5a8;
+}
+
+.hero-date {
+  margin-top: 40px;
+  font-size: 14px;
+  letter-spacing: 5px;
+}
+
+.hero-quote {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 28px;
+  margin-top: 30px;
+}
+
+/* INVITATION */
+
+.invitation {
+  background: var(--cream);
+}
+
+.invitation p {
+  max-width: 520px;
+  margin: auto;
+  font-size: 15px;
+  line-height: 2.2;
+  color: #244c3d;
+}
+
+.highlight {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* PHOTO */
+
+.full-photo {
+  width: 100%;
+}
+
+.full-photo img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+
+/* DATE */
+
+.date-section {
+  background: var(--white);
+}
+
+.date-main {
+  font-family: 'Cormorant Garamond',serif;
+  color: var(--gold);
+  font-size: 65px;
+  margin: 25px 0;
+}
+
+.date-time {
+  font-size: 18px;
+  letter-spacing: 5px;
+}
+
+/* CALENDAR */
+
+.calendar {
+  max-width: 380px;
+  margin: 40px auto 0;
+  padding: 25px;
+  background: var(--cream);
+}
+
+.calendar h3 {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  gap: 8px 3px;
+}
+
+.calendar-grid span {
+  padding: 9px 0;
+  font-size: 12px;
+}
+
+.calendar-grid .weekday {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.calendar-grid .selected {
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+}
+
+/* COUNTDOWN */
+
+.countdown {
+  background:
+    linear-gradient(rgba(5,35,25,.8),rgba(5,35,25,.9)),
+    url('images/photo1.jpg') center/cover;
+  color: white;
+}
+
+.timer {
+  max-width: 450px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+
+.timer-item {
+  border-right: 1px solid var(--gold);
+  padding: 10px 3px;
+}
+
+.timer-item:last-child {
+  border: none;
+}
+
+.timer-item strong {
+  display: block;
+  font-family: 'Cormorant Garamond',serif;
+  font-size: clamp(30px,8vw,48px);
+  color: var(--gold);
+}
+
+.timer-item span {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* GALLERY */
+
+.gallery-section {
+  background: #f0eadc;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 35px;
+}
+
+.gallery img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.gallery img:first-child {
+  grid-column: span 2;
+  height: 420px;
+}
+
+/* LOCATION */
+
+.location {
+  background: var(--white);
+}
+
+.location-name {
+  font-family: 'Cormorant Garamond',serif;
+  font-size: 38px;
+  margin: 25px 0;
+}
+
+.location p {
+  font-size: 16px;
+  line-height: 2.2;
+}
+
+.map-button {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  text-decoration: none;
+  padding: 17px 35px;
+  margin-top: 30px;
+  border: 1px solid var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+/* HOSTS */
+
+.family h2 {
+  font-family: 'Cormorant Garamond',serif;
+  color: var(--gold);
+  font-size: 52px;
+  margin: 25px 0;
+}
+
+.family p {
+  line-height: 2;
+  font-size: 14px;
+}
+
+/* FOOTER */
+
+footer {
+  background: var(--green);
+  color: white;
+  padding: 75px 20px;
+  text-align: center;
+}
+
+footer h2 {
+  font-family: 'Cormorant Garamond',serif;
+  color: var(--gold);
+  font-size: 49px;
+}
+
+footer p {
+  font-size: 10px;
+  letter-spacing: 2px;
+  line-height: 2;
+  margin-top: 25px;
+}
+
+/* MUSIC */
+
+.music-button {
+  position: fixed;
+  z-index: 100;
+  bottom: 22px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: var(--green);
+  color: white;
+  font-size: 21px;
+  cursor: pointer;
+  display: none;
+}
+
+.music-button.visible {
+  display: block;
+}
+
+.music-button.playing {
+  animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* ANIMATIONS */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s, transform 1s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media(max-width:380px) {
+  .gallery img {
+    height: 200px;
+  }
+  .gallery img:first-child {
+    height: 310px;
+  }
+  .timer-item span {
+    font-size: 8px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ENVELOPE -->
+
+<div id="intro">
+  <div class="envelope-wrap">
+    <div class="envelope" id="envelope">
+      <div class="envelope-back"></div>
+
+      <div class="envelope-letter">
+        <h2>Мадина & Азамат</h2>
+        <p>WEDDING INVITATION</p>
+      </div>
+
+      <div class="envelope-flap"></div>
+      <div class="envelope-front"></div>
+      <div class="seal">♡</div>
+    </div>
+
+    <div class="open-label">
+      ЧАКЫРУУ КАТЫН АЧУУ ҮЧҮН БАСЫҢЫЗ
+      <br>✧ ♡ ✧
+    </div>
+  </div>
+</div>
+
+<!-- MUSIC -->
+
+<audio id="music" loop preload="none">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-button" id="musicBtn">
+  ♫
+</button>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="eyebrow">SAVE THE DATE</div>
+
+  <h1>Мадина</h1>
+  <div class="amp">&</div>
+  <h1>Азамат</h1>
+
+  <div class="hero-date" id="heroDate">
+    ТОЙ КҮНҮ
+  </div>
+
+  <div class="hero-quote">
+    Эки жүрөк — бир тагдыр
+  </div>
+</section>
+
+<!-- INVITATION -->
+
+<section class="invitation reveal">
+  <div class="eyebrow">WITH LOVE</div>
+
+  <h2 class="title">
+    Урматтуу коноктор!
+  </h2>
+
+  <div class="line"></div>
+
+  <p>
+    Сиздерди балдарыбыз
+    <span class="highlight">Мадина менен Азаматтын</span>
+    үйлөнүү үлпөт тоюна арналган
+    салтанаттуу кечебизге чакырабыз.
+
+    <br><br>
+
+    Тойго келип, кубанычыбызды биз менен
+    бөлүшүп, кадырлуу коногубуз болуп
+    кетиңиздер!
+  </p>
+</section>
+
+<!-- MAIN PHOTO -->
+
+<div class="full-photo">
+  <img src="images/photo1.jpg" alt="Wedding decoration">
+</div>
+
+<!-- DATE -->
+
+<section class="date-section reveal">
+  <div class="eyebrow">SAVE THE DATE</div>
+
+  <h2 class="title">Той күнү</h2>
+
+  <div class="line"></div>
+
+  <div class="date-main" id="dateDisplay">
+    ДАТА
+  </div>
+
+  <div class="date-time">17:00</div>
+
+  <div class="calendar">
+    <h3 id="calendarMonth">Календарь</h3>
+    <div class="calendar-grid" id="calendarGrid"></div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+
+<section class="countdown reveal">
+  <div class="eyebrow">COUNTING DOWN</div>
+
+  <h2 class="title">Тойго чейин</h2>
+
+  <div class="line"></div>
+
+  <div class="timer">
+    <div class="timer-item">
+      <strong id="days">00</strong>
+      <span>КҮН</span>
+    </div>
+
+    <div class="timer-item">
+      <strong id="hours">00</strong>
+      <span>СААТ</span>
+    </div>
+
+    <div class="timer-item">
+      <strong id="minutes">00</strong>
+      <span>МҮНӨТ</span>
+    </div>
+
+    <div class="timer-item">
+      <strong id="seconds">00</strong>
+      <span>СЕКУНД</span>
+    </div>
+  </div>
+
+  <p id="countdownMessage" style="margin-top:25px;font-size:12px;">
+    Биздин өзгөчө күнгө чейин...
+  </p>
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery-section reveal">
+  <div class="eyebrow">OUR BEAUTIFUL MOMENTS</div>
+
+  <h2 class="title">Сүйүү көз ирмемдери</h2>
+
+  <div class="line"></div>
+
+  <div class="gallery">
+    <img src="images/photo2.jpg" alt="Wedding photo 1">
+    <img src="images/photo3.jpg" alt="Wedding photo 2">
+    <img src="images/photo4.jpg" alt="Wedding photo 3">
+    <img src="images/photo5.jpg" alt="Wedding photo 4">
+  </div>
+</section>
+
+<!-- LOCATION -->
+
+<section class="location reveal">
+  <div class="eyebrow">THE LOCATION</div>
+
+  <h2 class="title">Дарегибиз</h2>
+
+  <div class="line"></div>
+
+  <div class="location-name">
+    «Динат» рестораны
+  </div>
+
+  <p>
+    Ош шаары
+    <br>
+    Башталышы: <span class="highlight">17:00</span>
+  </p>
+
+  <a
+    class="map-button"
+    href="https://www.google.com/maps/search/?api=1&query=Dinat+Restaurant+Osh"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    КАРТАДАН КӨРҮҮ ↗
+  </a>
+</section>
+
+<!-- HOSTS -->
+
+<section class="family reveal">
+  <div class="eyebrow">WITH RESPECT</div>
+
+  <h2 class="title">Той ээлери</h2>
+
+  <div class="line"></div>
+
+  <h2>Айжамал & Мирбек</h2>
+
+  <p>
+    Сиздерди ак дасторконубуздун
+    төрүнөн күтөбүз!
+  </p>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="eyebrow">WITH LOVE</div>
+
+  <h2>Мадина & Азамат</h2>
+
+  <div class="line"></div>
+
+  <p>
+    БИЗДИН КУБАНЫЧЫБЫЗГА
+    <br>
+    ОРТОКТОШКОНУҢУЗ ҮЧҮН РАХМАТ!
+  </p>
+
+  <p style="font-size:25px;color:#b69a62;">
+    ✧ ♡ ✧
+  </p>
+</footer>
+
+<script>
+
+/* ==================================
+   ТОЙДУН ДАТАСЫ
+   Мисалы: 2026-12-30T17:00:00+06:00
+   Чыныгы датаңызды ушул жерге жазыңыз.
+================================== */
+
+const WEDDING_DATE = "";
+
+/* ENVELOPE */
+
+const intro = document.getElementById("intro");
+const envelope = document.getElementById("envelope");
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
+
+let opened = false;
+
+envelope.addEventListener("click", function() {
+  if (opened) return;
+
+  opened = true;
+
+  envelope.classList.add("open");
+
+  musicBtn.classList.add("visible");
+
+  music.play().then(() => {
+    musicBtn.textContent = "♫";
+    musicBtn.classList.add("playing");
+  }).catch(() => {
+    musicBtn.textContent = "▶";
+  });
+
+  setTimeout(() => {
+    intro.classList.add("hide");
+  }, 1400);
+});
+
+/* MUSIC CONTROL */
+
+musicBtn.addEventListener("click", function() {
+  if (music.paused) {
+    music.play().then(() => {
+      musicBtn.textContent = "♫";
+      musicBtn.classList.add("playing");
+    }).catch(() => {});
+  } else {
+    music.pause();
+    musicBtn.textContent = "▶";
+    musicBtn.classList.remove("playing");
+  }
+});
+
+/* DATE AND CALENDAR */
+
+const weekdays = ["Дш","Шш","Шр","Бш","Жм","Иш","Жш"];
+
+const monthNames = [
+  "ЯНВАРЬ","ФЕВРАЛЬ","МАРТ","АПРЕЛЬ",
+  "МАЙ","ИЮНЬ","ИЮЛЬ","АВГУСТ",
+  "СЕНТЯБРЬ","ОКТЯБРЬ","НОЯБРЬ","ДЕКАБРЬ"
+];
+
+let targetDate = null;
+
+function setupDate() {
+  const grid = document.getElementById("calendarGrid");
+
+  grid.innerHTML = "";
+
+  if (!WEDDING_DATE) {
+    document.getElementById("dateDisplay").textContent = "ДАТА КИЙИН КОШУЛАТ";
+    document.getElementById("heroDate").textContent = "ТОЙ КҮНҮ";
+    document.getElementById("calendarMonth").textContent = "Тойдун датасы";
+    document.getElementById("countdownMessage").textContent =
+      "Тойдун датасы белгиленгенде таймер иштейт.";
+    return;
+  }
+
+  targetDate = new Date(WEDDING_DATE);
+
+  if (isNaN(targetDate.getTime())) return;
+
+  const day = targetDate.getDate();
+  const month = targetDate.getMonth();
+  const year = targetDate.getFullYear();
+
+  document.getElementById("dateDisplay").textContent =
+    `${day} ${monthNames[month]}, ${year}`;
+
+  document.getElementById("heroDate").textContent =
+    `${day}.${String(month + 1).padStart(2,"0")}.${year}`;
+
+  document.getElementById("calendarMonth").textContent =
+    `${monthNames[month]} ${year}`;
+
+  weekdays.forEach(name => {
+    const span = document.createElement("span");
+    span.textContent = name;
+    span.className = "weekday";
+    grid.appendChild(span);
+  });
+
+  const firstDay = new Date(year,month,1).getDay();
+  const offset = (firstDay + 6) % 7;
+  const totalDays = new Date(year,month + 1,0).getDate();
+
+  for (let i = 0; i < offset; i++) {
+    grid.appendChild(document.createElement("span"));
+  }
+
+  for (let d = 1; d <= totalDays; d++) {
+    const span = document.createElement("span");
+    span.textContent = d;
+
+    if (d === day) {
+      span.className = "selected";
+    }
+
+    grid.appendChild(span);
+  }
+}
+
+/* COUNTDOWN */
+
+function updateCountdown() {
+  const ids = ["days","hours","minutes","seconds"];
+
+  if (!targetDate) {
+    ids.forEach(id => {
+      document.getElementById(id).textContent = "--";
+    });
+    return;
+  }
+
+  const difference = targetDate.getTime() - Date.now();
+
+  if (difference <= 0) {
+    ids.forEach(id => {
+      document.getElementById(id).textContent = "00";
+    });
+
+    document.getElementById("countdownMessage").textContent =
+      "Бүгүн биздин өзгөчө күнүбүз! ♡";
+
+    return;
+  }
+
+  const values = [
+    Math.floor(difference / 86400000),
+    Math.floor((difference / 3600000) % 24),
+    Math.floor((difference / 60000) % 60),
+    Math.floor((difference / 1000) % 60)
+  ];
+
+  ids.forEach((id,index) => {
+    document.getElementById(id).textContent =
+      String(values[index]).padStart(2,"0");
+  });
+}
+
+setupDate();
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+/* SCROLL ANIMATION */
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.12});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
+
+</script>
+
+</body>
+</html>
+
